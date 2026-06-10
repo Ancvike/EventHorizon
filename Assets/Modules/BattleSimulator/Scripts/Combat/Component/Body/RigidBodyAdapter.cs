@@ -104,7 +104,7 @@ namespace Combat.Component.Body
                 if (Parent == null)
                 {
                     _cachedVelocity = value;
-                    _rigidbody.velocity = value;
+                    _rigidbody.linearVelocity = value;
                 }
             }
         }
@@ -176,7 +176,7 @@ namespace Combat.Component.Body
 
         public void UpdatePhysics(float elapsedTime)
         {
-            var velocity = _rigidbody.velocity;
+            var velocity = _rigidbody.linearVelocity;
 
             if (_limitMaxVelocity)
             {
@@ -184,7 +184,7 @@ namespace Combat.Component.Body
                 if (speed > _velocityHardLimit)
                 {
                     velocity = velocity * _velocityHardLimit / speed;
-                    _rigidbody.velocity = velocity;
+                    _rigidbody.linearVelocity = velocity;
                 }
             }
 
