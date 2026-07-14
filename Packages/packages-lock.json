@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.google.external-dependency-manager": {
-      "version": "file:C:/wwwwww/traework/EventHorizon_v1.12/Packages/com.google.external-dependency-manager-1.2.177.tgz",
+      "version": "file:com.google.external-dependency-manager-1.2.177.tgz",
       "depth": 0,
       "source": "local-tarball",
       "dependencies": {}
