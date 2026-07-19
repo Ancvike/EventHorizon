@@ -68,9 +68,6 @@ namespace Gui.Craft
             if (!CanUnlock)
                 return;
 
-            _resources.Money -= Price.Credits;
-			_resources.Stars -= Price.Stars;
-            _research.AddResearchPoints(_ship.Model.Faction, -Price.Techs);
             var quality = CraftItemQuality.Improved + _ship.Model.Modifications.Count;
             _ship.Experience = Experience.FromLevel(_ship.Experience.Level - GetLevelCost(quality));
 

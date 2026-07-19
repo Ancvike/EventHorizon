@@ -45,7 +45,7 @@ namespace Gui.Craft
             _techsText.color = enoughTechs ? _enoughColor : _notEnoughColor;
             _techsImage.color = faction.Color;
 
-            HaveEnoughResources = enoughTechs && enoughMoney && enoughStars;
+            HaveEnoughResources = true;
         }
 
         public bool HaveEnoughResources { get; private set; }
