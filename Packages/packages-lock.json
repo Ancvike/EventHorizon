@@ -1,11 +1,10 @@
 {
   "dependencies": {
     "com.google.external-dependency-manager": {
-      "version": "1.2.187",
+      "version": "file:com.google.external-dependency-manager-1.2.187.tgz",
       "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.com"
+      "source": "local-tarball",
+      "dependencies": {}
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
