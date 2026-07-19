@@ -43,6 +43,8 @@ namespace GameServices.Database
 
         public int TotalSkills { get; private set; }
 
+        public IEnumerable<SkillInfo> All => _skills.Values;
+
         public bool IsFree(SkillType type)
         {
             if (type == SkillType.Undefined)

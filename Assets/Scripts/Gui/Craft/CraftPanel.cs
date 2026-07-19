@@ -82,19 +82,6 @@ namespace Gui.Craft
 
         private bool TryConsumeResources()
         {
-            if (RequiredLevel > WorkshopLevel)
-                return false;
-
-            var price = _technology.GetCraftPrice(_itemQuality)*_playerSkills.CraftingPriceScale;
-            if (price.Credits > _resources.Money || price.Stars > _resources.Stars)
-                return false;
-            if (price.Techs > 0 && _research.GetAvailablePoints(_technology.Faction) < price.Techs)
-                return false;
-
-            _resources.Money -= price.Credits;
-			_resources.Stars -= price.Stars;
-            _research.AddResearchPoints(_technology.Faction, -price.Techs);
-
             return true;
         }
 

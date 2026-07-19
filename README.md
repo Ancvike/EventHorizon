@@ -11,3 +11,5 @@ git clone https://github.com/PavelZinchenko/EventHorizon-Editor.git Assets/Modul
 git clone https://github.com/PavelZinchenko/NVorbis.git Assets/Modules/Database/Plugins/NVorbis
 
 git clone https://github.com/PavelZinchenko/event-horizon-session-code-generator.git Assets/Modules/GameSession/.CodeGenerator
+
+Attachment是unity设置Gradle的文件

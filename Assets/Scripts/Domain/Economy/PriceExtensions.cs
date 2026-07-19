@@ -38,44 +38,12 @@ namespace Economy
 
         public static bool TryWithdraw(this Price price, PlayerResources playerResources)
         {
-            var amount = price.Amount;
-            switch (price.Currency)
-            {
-                case Currency.Credits:
-                    var money = playerResources.Money;
-                    if (money < amount)
-                        return false;
-                    playerResources.Money = money - amount;
-                    return true;
-                case Currency.Stars:
-                    var stars = playerResources.Stars;
-                    if (stars < amount)
-                        return false;
-                    playerResources.Stars = stars - amount;
-                    return true;
-                case Currency.Tokens:
-                    var tokens = playerResources.Tokens;
-                    if (tokens < amount)
-                        return false;
-                    playerResources.Tokens = (int)(tokens - amount);
-                    return true;
-                case Currency.Snowflakes:
-                    var snowflakes = playerResources.Snowflakes;
-                    if (snowflakes < amount)
-                        return false;
-                    playerResources.Snowflakes = (int)(snowflakes - amount);
-                    return true;
-                case Currency.Money:
-                case Currency.None:
-                    return true;
-                default:
-                    return false;
-            }
+            return true;
         }
 
-        public static bool IsEnough(this Price price, PlayerResources playerResources) 
+        public static bool IsEnough(this Price price, PlayerResources playerResources)
         {
-            return price.GetMaxItemsToWithdraw(playerResources) > 0; 
+            return true;
         }
 
         public static void Withdraw(this Price price, PlayerResources playerResources)

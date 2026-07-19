@@ -54,14 +54,7 @@ namespace GameServices.Player
 
         public bool HasSkill(int id)
         {
-            if (_session.Upgrades.HasSkill(id))
-                return true;
-
-            var info = _skills[id];
-            if (info.IsEmpty)
-                return false;
-
-            return _skills.IsFree(info.Type);
+            return true;
         }
 
         public bool TryAdd(int id)
@@ -183,9 +176,8 @@ namespace GameServices.Player
             if (_skillLevels == null)
             {
                 _skillLevels = Enum.GetValues(typeof(SkillType)).OfType<SkillType>().ToDictionary(item => item, item => 0);
-                foreach (var id in _session.Upgrades.Skills)
+                foreach (var info in _skills.All)
                 {
-                    var info = _skills[id];
                     if (info.IsEmpty)
                         continue;
 
@@ -193,7 +185,6 @@ namespace GameServices.Player
                         continue;
 
                     _skillLevels[info.Type] += info.Multilpler;
-                    _pointsSpent++;
                 }
 
                 _messenger.Broadcast(EventType.PlayerSkillsChanged);
