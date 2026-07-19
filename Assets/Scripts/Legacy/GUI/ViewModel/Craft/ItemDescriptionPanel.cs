@@ -120,38 +120,43 @@ namespace ViewModel.Craft
             _stats.gameObject.SetActive(true);
             _stats.transform.InitializeElements<TextFieldViewModel, KeyValuePair<string, string>>(
                 ShipEditor.UI.ComponentItem.GetDescription(component, _localization, _database.LocalizationSettings), UpdateTextField, _factory);
-            _weaponSlots.gameObject.SetActive(false);
+            if (_weaponSlots != null)
+                _weaponSlots.gameObject.SetActive(false);
         }
 
         private void CreateEmpty()
         {
-            _icon.sprite = _emptyIcon;
-            _icon.color = Color.white;
-            _name.text = string.Empty;
-            _description.gameObject.SetActive(false);
-            _stats.gameObject.SetActive(false);
-            _weaponSlots.gameObject.SetActive(false);
-            _modification.gameObject.SetActive(false);
+            if (_icon != null) { _icon.sprite = _emptyIcon; _icon.color = Color.white; }
+            if (_name != null) _name.text = string.Empty;
+            if (_description != null) _description.gameObject.SetActive(false);
+            if (_stats != null) _stats.gameObject.SetActive(false);
+            if (_weaponSlots != null) _weaponSlots.gameObject.SetActive(false);
+            if (_modification != null) _modification.gameObject.SetActive(false);
         }
 
         private void CreateDefault(IItemType item)
         {
-            _icon.sprite = _resourceLocator.GetSprite(item.Icon);
-            _icon.color = item.Color;
-            _name.text = item.Name;
+            if (item == null) return;
+            if (_icon != null) { _icon.sprite = _resourceLocator.GetSprite(item.Icon); _icon.color = item.Color; }
+            if (_name != null) _name.text = item.Name;
             _name.color = UiTheme.Current.GetQualityColor(item.Quality);
 
             var description = item.Description;
-            _description.gameObject.SetActive(!string.IsNullOrEmpty(description));
-            _description.text = item.Description;
+            if (_description != null)
+            {
+                _description.gameObject.SetActive(!string.IsNullOrEmpty(description));
+                _description.text = item.Description;
+            }
 
-            _stats.gameObject.SetActive(false);
-            _weaponSlots.gameObject.SetActive(false);
-            _modification.gameObject.SetActive(false);
+            if (_stats != null) _stats.gameObject.SetActive(false);
+            if (_weaponSlots != null) _weaponSlots.gameObject.SetActive(false);
+            if (_modification != null) _modification.gameObject.SetActive(false);
         }
 
 		private void UpdateWeaponSlots(IReadOnlyCollection<Barrel> barrels)
 		{
+			if (_weaponSlots == null) return;
+			if (barrels == null) { _weaponSlots.gameObject.SetActive(false); return; }
 			_weaponSlots.gameObject.SetActive(barrels.Count > 0);
 			_weaponSlots.transform.InitializeElements<BlockViewModel, Barrel>(barrels, UpdateWeaponSlot);
 		}

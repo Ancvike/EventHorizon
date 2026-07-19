@@ -54,7 +54,6 @@ namespace Game
         protected override void OnSessionCreated()
         {
             var random = RandomState.FromTickCount();
-            if (IsEaster) _questManager.StartQuest(_database.SpecialEventSettings.EasterQuest, random.Next());
             if (IsChristmas) _questManager.StartQuest(_database.SpecialEventSettings.XmasQuest, random.Next());
             if (IsHalloween) _questManager.StartQuest(_database.SpecialEventSettings.HalloweenQuest, random.Next());
         }
