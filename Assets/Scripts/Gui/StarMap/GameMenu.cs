@@ -1,4 +1,4 @@
-﻿using Game;
+using Game;
 using UnityEngine;
 using UnityEngine.UI;
 using GameServices.Player;
@@ -36,6 +36,7 @@ namespace Gui.StarMap
         public AnimatedWindow ChallengePanel;
         public AnimatedWindow IapStoreWindow;
         public AnimatedWindow QuestLogWindow;
+        public AnimatedWindow SpecialMarketDialogPanel;
 
         [SerializeField] private Button StarViewButton;
         [SerializeField] private Button GalaxyViewButton;
@@ -65,6 +66,7 @@ namespace Gui.StarMap
         public void ShowChallenge() { ChallengePanel.Open(); }
         public void ShowIapStore() { IapStoreWindow.Open(); }
         public void ShowQuestLog() { QuestLogWindow.Open(); }
+        public void ShowSpecialMarketDialog() { SpecialMarketDialogPanel.Open(); }
 
         public void ExitToMainMenu()
         {
