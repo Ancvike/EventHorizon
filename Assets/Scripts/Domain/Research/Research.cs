@@ -141,6 +141,25 @@ namespace GameServices.Research
             foreach (var tech in _researchedTech)
                 if (IsAvailabe(tech, true))
                     _availableTech.Add(tech);
+
+            foreach (var tech in _technologies.All)
+            {
+                if (_researchedTech.Add(tech))
+                {
+                    _availableTech.Add(tech);
+                    _session.Research.AddTechnology(tech.Data.Id);
+                }
+            }
+
+            foreach (var faction in _database.FactionsWithEmpty)
+            {
+                _researchPoints[faction.Id.Value] = 9999;
+                _session.Research.SetResearchPoints(faction, 9999);
+            }
+
+            CheckConsistency();
+            _messenger.Broadcast(EventType.TechResearched);
+            _messenger.Broadcast(EventType.TechPointsChanged);
 	    }
 
 	    protected override void OnSessionCreated()

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using GameDatabase;
@@ -160,6 +160,16 @@ namespace GameServices.Player
             _skillLevels = null;
             _pointsSpent = 0;
             _experience = _session.Upgrades.PlayerExperience;
+
+            Experience = GameModel.Skills.Experience.FromLevel(_skills.TotalSkills);
+
+            foreach (var info in _skills.All)
+            {
+                if (info.IsEmpty || !info.Type.IsCommonSkill() || _session.Upgrades.HasSkill(info.Id))
+                    continue;
+
+                TryAdd(info.Id);
+            }
         }
 
         protected override void OnSessionCreated()
