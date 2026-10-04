@@ -1,3 +1,4 @@
+#if !EVENTHORIZON_ENCRYPTION
 using System.Collections.Generic;
 
 namespace Security
@@ -8,3 +9,4 @@ namespace Security
         public static bool TryDecrypt(byte[] data) => true;
     }
 }
+#endif

@@ -99,7 +99,9 @@ namespace Installers
             Container.BindInterfacesTo<EmptyAccount>().AsSingle();
 #endif
 
-#if LICENSE_OPENSOURCE
+#if EVENTHORIZON_ENCRYPTION && !EVENTHORIZON_ORIGINAL_MODULE
+            Container.BindInterfacesTo<LocalStorage>().AsSingle();
+#elif LICENSE_OPENSOURCE
             Container.BindInterfacesTo<PlayerPrefsStorage>().AsSingle();
 #elif UNITY_WEBGL && !UNITY_EDITOR
             Container.BindInterfacesTo<PlayerPrefsStorage>().AsSingle();

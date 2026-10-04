@@ -11,7 +11,8 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [
-        "LICENSE_OPENSOURCE"
+        "LICENSE_OPENSOURCE",
+        "!EVENTHORIZON_ORIGINAL_MODULE"
     ],
     "versionDefines": [],
     "noEngineReferences": false

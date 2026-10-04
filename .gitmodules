@@ -19,3 +19,6 @@
 [submodule "Assets/Modules/Database/Plugins/NVorbis"]
 	path = Assets/Modules/Database/Plugins/NVorbis
 	url = https://github.com/PavelZinchenko/NVorbis
+[submodule "Assets/Modules/EventHorizon_Encryption"]
+	path = Assets/Modules/EventHorizon_Encryption
+	url = https://github.com/Ancvike/EventHorizon_Encryption.git
