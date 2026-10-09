@@ -13,3 +13,9 @@ git clone https://github.com/PavelZinchenko/NVorbis.git Assets/Modules/Database/
 git clone https://github.com/PavelZinchenko/event-horizon-session-code-generator.git Assets/Modules/GameSession/.CodeGenerator
 
 git clone https://github.com/Ancvike/EventHorizon_Encryption.git Assets/Modules/EventHorizon_Encryption
+
+This repository is a modified fork of Event Horizon by Pavel Zinchenko.
+All C# source code (original code and my modifications) is licensed under GNU GPLv3 (see LICENSE file).
+
+IMPORTANT: All game assets (sprites, textures, sound, music, artwork) are NOT covered by GPLv3.
+Copyright of all assets belongs to Pavel Zinchenko. Redistribution of these assets is not permitted without permission.
